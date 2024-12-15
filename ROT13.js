@@ -21,5 +21,4 @@ function rot13(str) {
   }).join('');
 }
 
-// console.log(rot13('EBG13 rknzcyr.'))
-console.log((5 + 15) % 10)
+console.log(rot13('EBG13 rknzcyr.'))
