@@ -3,19 +3,15 @@ function rot13(str) {
   const alpha = 'abcdefghijklmnopqrstuvwxyz';
 
   return str.split('').map((char, i) => {
-    if (char.match(/[a-z]/)) {
-      const alphaIndex = alpha.indexOf(char);
-      const newIdx = (alphaIndex + 13) % alpha.length;
-      const newChar = alpha[newIdx];
-      return newChar;
-    } else if (char.match(/[A-Z]/)) {
+    if (char.match(/[a-zA-Z]/)) {
       const alphaIndex = alpha.indexOf(char.toLowerCase());
       const newIdx = (alphaIndex + 13) % alpha.length;
-      const newChar = alpha[newIdx].toUpperCase();
+      let newChar = alpha[newIdx];
+      if (char.match(/[A-Z]/)) {
+        newChar = newChar.toUpperCase();
+      }
       return newChar;
-    }
-
-    else {
+    } else {
       return char;
     }
   }).join('');
